@@ -1,5 +1,11 @@
-const add = require('.')
+const {add, subtract} = require(".");
 
-test('add', () => {
-  expect(add(1, 2)).toEqual(3)
-})
+describe("tests", () => {
+  test("add", () => {
+    expect(add(1, 2)).toEqual(3);
+  });
+
+  test("subtract", () => {
+    expect(subtract(2, 1)).toEqual(1);
+  });
+});
