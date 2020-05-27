@@ -12,8 +12,7 @@ jobs:
         uses: actions/setup-node@v1.4.1
         with:
           node-version: "13.9.0"
-        # Use action-npm-install to ensure that yarn is used
-        # instead of npm
+        # Use action-npm-install to ensure that yarn is used instead of npm
       - name: dependencies install
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test
