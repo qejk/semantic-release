@@ -1,13 +1,12 @@
 name: Test release
 
 on:
-  # Trigger the workflow on push request, but only for the master branch
   push:
-    branches:
-      - master
+      branches: [master, next]
+  pull_request:
+      branches: [master, next]
 jobs:
-  # Triggers only on lint event
-  pull-request:
+  build:
     name: Release
     runs-on: ubuntu-latest
     steps:
