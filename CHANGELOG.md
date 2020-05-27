@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/qejk/semantic-release-test/compare/v1.5.1...v1.5.2) (2020-05-27)
+
+
+### Bug Fixes
+
+* disable release action ([#12](https://github.com/qejk/semantic-release-test/issues/12)) ([df0fb26](https://github.com/qejk/semantic-release-test/commit/df0fb260733f6626f4601f6ac2bec55a6f0380f3))
+
 ## [1.5.1](https://github.com/qejk/semantic-release-test/compare/v1.5.0...v1.5.1) (2020-05-27)
 
 
