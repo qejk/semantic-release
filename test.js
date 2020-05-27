@@ -1,5 +1,4 @@
-const add = require(".");
-const subtract = require(".");
+const {add, subtract} = require(".");
 
 describe("tests", () => {
   test("add", () => {
