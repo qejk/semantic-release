@@ -1,0 +1,49 @@
+name: Node Continuous Integration
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '13.9.0' ]
+    name: Node ${{ matrix.node }} environment
+    steps:
+    - name: Code checkout
+      uses: actions/checkout@v2.0.0
+    - name: Setup Node Environment
+      uses: actions/setup-node@v1.4.1
+      with:
+        node-version: ${{ matrix.node }}
+      # Use jaid/action-npm-install to ensure that correct package manager is used for
+      # installing dependencies (based of existence yarn.lock/package-lock.json)
+    - name: Install dependencies
+      uses: jaid/action-npm-install@v1.2.1
+  test_pull_request:
+    needs: setup
+    steps:
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
+  simulate_semantic_release:
+    needs: setup
+    steps:
+      - name: Simulate semantic release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic   # Need an `id` for output variables
+        with:
+          extra_plugins: |
+            @semantic-release/changelog@5.0.1
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Output simulated release
+        run: |
+          echo ${{ steps.semantic.outputs.new_release_version }}
+          echo ${{ steps.semantic.outputs.new_release_major_version }}
+          echo ${{ steps.semantic.outputs.new_release_minor_version }}
+          echo ${{ steps.semantic.outputs.new_release_patch_version }}
