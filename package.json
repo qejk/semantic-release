@@ -12,6 +12,8 @@
   },
   "scripts": {
     "test": "jest test.js",
+    "build": "echo build",
+    "lint": "echo lint",
     "semantic-release": "semantic-release"
   }
 }
