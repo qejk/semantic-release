@@ -11,20 +11,24 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: actions/checkout
+      - name: Checkout
         uses: actions/checkout@v2.0.0
         # Use setup-node to define Node's environment version
-      - name: actions/setup-node
+      - name: Setup Node Environment
         uses: actions/setup-node@v1.4.1
         with:
           node-version: "13.9.0"
-        # Use action-npm-install to ensure that yarn is used instead of npm
-      - name: dependencies install
+        # Use action-npm-install to ensure that correct package manager is used for
+        # installing dependencies (based on yarn.lock/package-lock.json)
+      - name: Install dependencies
         uses: jaid/action-npm-install@v1.2.1
         # Use npm here because --if-present is not available on yarn
-      - run: npm run build --if-present
-      - run: yarn test
-      - run: yarn semantic-release
+      - name: Build
+        run: npm run build --if-present
+      - name: Testing
+        run: yarn test
+      - name: Semantic Release
+        run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
