@@ -1,23 +1,22 @@
 name: Release npm package
-
 on:
   push:
-    branches:
-      - master
-
+    branches: [master]
 jobs:
-  release:
-    name: Release
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
+      - name: actions/checkout
+        uses: actions/checkout@v2.0.0
+      - name: actions/setup-node
+        uses: actions/setup-node@v1.4.1
         with:
-          node-version: "12.x"
-      - run: npm ci
+          node-version: "13.9.0"
+      - name: dependencies install
+        uses: jaid/action-npm-install@v1.2.4"
       - run: npm run build --if-present
-      - run: npm test
-      - run: npx semantic-release
+      - run: yarn test
+      - run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
