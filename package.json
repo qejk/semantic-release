@@ -1,5 +1,5 @@
 {
-  "name": "@qejk/semantic-release-test",
+  "name": "semantic-release-testing-with-github",
   "version": "0.0.0-development",
   "repository": "https://github.com/qejk/semantic-release-test",
   "main": "index.js",
