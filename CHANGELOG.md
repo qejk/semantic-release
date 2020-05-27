@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/qejk/semantic-release-test/compare/v1.5.0...v1.5.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* missing dep ([#11](https://github.com/qejk/semantic-release-test/issues/11)) ([1cd04e9](https://github.com/qejk/semantic-release-test/commit/1cd04e92abf363a2b72b153ed8cf436f3896d7b1))
+
 # [1.5.0](https://github.com/qejk/semantic-release-test/compare/v1.4.0...v1.5.0) (2020-05-27)
 
 
