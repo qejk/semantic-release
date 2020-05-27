@@ -12,5 +12,5 @@ jobs:
         with:
           node-version: "13.9.0"
       - name: dependencies install
-        uses: jaid/action-npm-install@v1.2.1"
+        uses: jaid/action-npm-install@v1.2.1
       - run: yarn test
