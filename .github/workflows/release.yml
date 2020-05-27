@@ -1,23 +1,30 @@
 name: Release npm package
 
 on:
+  # Trigger the workflow on push request, but only for the master branch
   push:
     branches:
       - master
-
 jobs:
+  # Triggers only on release event
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
+      - name: actions/checkout
+        uses: actions/checkout@v2.0.0
+        # Use setup-node to define Node's environment version
+      - name: actions/setup-node
+        uses: actions/setup-node@v1.4.1
         with:
-          node-version: "12.x"
-      - run: npm ci
+          node-version: "13.9.0"
+        # Use action-npm-install to ensure that yarn is used instead of npm
+      - name: dependencies install
+        uses: jaid/action-npm-install@v1.2.1
+        # Use npm here because --if-present is not available on yarn
       - run: npm run build --if-present
-      - run: npm test
-      - run: npx semantic-release
+      - run: yarn test
+      - run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
