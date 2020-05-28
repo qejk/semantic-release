@@ -25,24 +25,16 @@ jobs:
     - run: yarn lint
     - run: yarn test
     - run: yarn build
-    - name: Dry run Semantic release
-      uses: cycjimmy/semantic-release-action@v2
-      id: semantic   # Need an `id` for output variables
+    - uses: tzkhan/pr-update-action@v1.1.1
       with:
-        dry_run: true
-        # You can specify specifying version range for the extra plugins if you prefer.
-        extra_plugins: |
-          @semantic-release/changelog@5.0.1
-          @semantic-release/git
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v2
-      if: steps.semantic.outputs.new_release_published == 'true'
-      with:
-        branch: 'release/${{ steps.semantic.outputs.new_release_version }}'
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: 'chore(Version): Prepare v${{ steps.semantic.outputs.new_release_version }}. Merge release/${{ steps.semantic.outputs.new_release_version }} into develop.'
-        title: Prepare v${{ steps.semantic.outputs.new_release_version }}
-        body: ${{ steps.semantic.outputs.new_release_notes }}
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        branch-regex: 'foo-\d+'
+        lowercase-branch: false
+        title-template: '[%branch%]'
+        replace-title: false
+        title-prefix-space: true
+        uppercase-title: true
+        body-template: '[Link to %branch%](https://url/to/browse/ticket/%branch%)'
+        replace-body: false
+        body-prefix-newline-count: 2
+        uppercase-body: true
