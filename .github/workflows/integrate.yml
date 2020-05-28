@@ -26,14 +26,14 @@ jobs:
     - run: yarn test
     - run: yarn build
     - name: Dry run Semantic release
-      id: semantic
-      uses: cycjimmy/semantic-release-action@latest
-      with:
-        dry_run: true
-        # You can specify specifying version range for the extra plugins if you prefer.
-        extra_plugins: |
-          @semantic-release/changelog@5.0.1
-          @semantic-release/git
+      uses: cycjimmy/semantic-release-action@v2
+        id: semantic   # Need an `id` for output variables
+        with:
+          dry_run: true
+          # You can specify specifying version range for the extra plugins if you prefer.
+          extra_plugins: |
+            @semantic-release/changelog@5.0.1
+            @semantic-release/git
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -45,4 +45,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'chore(Version): Prepare v${{ steps.semantic.outputs.new_release_version }}. Merge release/${{ steps.semantic.outputs.new_release_version }} into develop.'
         title: Prepare v${{ steps.semantic.outputs.new_release_version }}
-        b
+        body: ${{ steps.semantic.outputs.new_release_notes }}
