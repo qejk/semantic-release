@@ -4,7 +4,25 @@ on: pull_request
 jobs:
   pr_update_text:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '13.9.0' ]
+    name: Node ${{ matrix.node }} environment
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Semantic Release
+      uses: cycjimmy/semantic-release-action@v2
+      id: semantic   # Need an `id` for output variables
+      with:
+        dry_run: true
+        # You can specify specifying version range for the extra plugins if you prefer.
+        extra_plugins: |
+          @semantic-release/changelog@5.0.1
+          @semantic-release/git
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     - uses: tzkhan/pr-update-action@v1.1.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
@@ -14,7 +32,7 @@ jobs:
         replace-title: false
         title-prefix-space: true
         uppercase-title: true
-        body-template: '[Link to %branch%](https://url/to/browse/ticket/%branch%)'
+        body-template: '[Link to %branch%](https://url/to/browse/ticket/%branch%) \n {nextRelease.notes}'
         replace-body: false
         body-prefix-newline-count: 2
         uppercase-body: true
