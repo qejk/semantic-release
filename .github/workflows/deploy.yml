@@ -35,11 +35,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-    - name: Output release
-      if: steps.semantic.outputs.new_release_published == 'true'
-      run: |
-        echo ${{ steps.semantic.outputs.new_release_version }}
-        echo ${{ steps.semantic.outputs.new_release_major_version }}
-        echo ${{ steps.semantic.outputs.new_release_minor_version }}
-        echo ${{ steps.semantic.outputs.new_release_patch_version }}

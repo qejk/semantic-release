@@ -25,14 +25,20 @@ jobs:
     - run: yarn lint
     - run: yarn test
     - run: yarn build
-    - name: Simulate semantic release
-      run: yarn semantic-release --dry-run
+    - name: Dry run Semantic release
+      id: semantic
+      uses: cycjimmy/semantic-release-action@latest
+      with:
+        dry_run: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: Output simulated release
-      run: |
-        echo ${{ steps.semantic.outputs.new_release_version }}
-        echo ${{ steps.semantic.outputs.new_release_major_version }}
-        echo ${{ steps.semantic.outputs.new_release_minor_version }}
-        echo ${{ steps.semantic.outputs.new_release_patch_version }}
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      if: steps.semantic.outputs.new_release_published == 'true'
+      with:
+        branch: 'release/${{ steps.semantic.outputs.new_release_version }}'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore(Version): Prepare v${{ steps.semantic.outputs.new_release_version }}. Merge release/${{ steps.semantic.outputs.new_release_version }} into develop.'
+        title: Prepare v${{ steps.semantic.outputs.new_release_version }}
+        b
