@@ -40,4 +40,4 @@ jobs:
       run: |
         echo Simulated release of ${{ steps.semantic.outputs.new_release_version }} from develop
         echo Release notes for version ${{ steps.semantic.outputs.new_release_version }}
-        echo ${{ steps.semantic.outputs }}
+        echo ${{ steps.semantic.outputs.new_release_notes }}
