@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       uses: jaid/action-npm-install@v1.2.1
     - run: yarn build
-    - name: Simulate(dry-run) Semantic Release
+    - name: Simulate(dry-run) release with Semantic Release
       id: semantic
       uses: cycjimmy/semantic-release-action@v2
       with:
@@ -38,6 +38,6 @@ jobs:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Output simulated release
       run: |
-        echo  Simulated release of ${{ steps.semantic.outputs.new_release_version }} from develop
+        echo Simulated release of ${{ steps.semantic.outputs.new_release_version }} from develop
         echo Release notes for version ${{ steps.semantic.outputs.new_release_version }}
         echo ${{ steps.semantic.outputs.new_release_notes }}
