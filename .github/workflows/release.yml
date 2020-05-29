@@ -1,4 +1,4 @@
-name: Node/Release
+name: Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  build_and_publish_with_semantic_release:
+  build_and_publish_release_with_semantic_release:
     runs-on: ubuntu-latest
     strategy:
       matrix:

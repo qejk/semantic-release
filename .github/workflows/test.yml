@@ -20,9 +20,9 @@ jobs:
       # installing dependencies (based of existence yarn.lock/package-lock.json)
     - name: Install dependencies
       uses: jaid/action-npm-install@v1.2.1
-    - run: yarn test
+    - run: yarn lint
       env:
         CI: true
-    - run: yarn lint
+    - run: yarn test
       env:
         CI: true
