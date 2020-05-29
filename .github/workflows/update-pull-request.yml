@@ -1,4 +1,4 @@
-name: "Github/Update Pull Request"
+name: "Update Pull Request"
 
 on: pull_request
 
