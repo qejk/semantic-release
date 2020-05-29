@@ -15,7 +15,8 @@ jobs:
       -
         env:
           CI: true
-        run: "npm ci"
+      - name: Install dependencies
+        uses: jaid/action-npm-install@v1.2.1
       -
         env:
           CI: true
