@@ -12,7 +12,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Update Pull Request
-    - uses: tzkhan/pr-update-action@v1.1.1
+      uses: tzkhan/pr-update-action@v1.1.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         branch-regex: 'foo-\d+'
