@@ -8,12 +8,11 @@ jobs:
     strategy:
       matrix:
         node: [ '13.9.0' ]
-        test-type: [unit, lint]
     name: Node@${{ matrix.node }}
     steps:
     - name: Code checkout
       uses: actions/checkout@v2.0.0
-    - name: Setup Node@${{ matrix.node-version }}
+    - name: Setup Node@${{ matrix.node }}
       uses: actions/setup-node@v1.4.1
       with:
         node-version: ${{ matrix.node }}
@@ -21,7 +20,9 @@ jobs:
       # installing dependencies (based of existence yarn.lock/package-lock.json)
     - name: Install dependencies
       uses: jaid/action-npm-install@v1.2.1
-    - name: Run test (${{ matrix.test-type }})
-      run: 'yarn test:${{ matrix.test-type }}'
+    - run: yarn test
+      env:
+        CI: true
+    - run: yarn lint
       env:
         CI: true
