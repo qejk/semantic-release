@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/qejk/semantic-release-test/compare/v1.5.2...v1.6.0) (2020-05-29)
+
+
+### Features
+
+* add multiply ([#19](https://github.com/qejk/semantic-release-test/issues/19)) ([#20](https://github.com/qejk/semantic-release-test/issues/20)) ([6510c38](https://github.com/qejk/semantic-release-test/commit/6510c382e71217b0224dcd85f56c928c012952b3))
+
 ## [1.5.2](https://github.com/qejk/semantic-release-test/compare/v1.5.1...v1.5.2) (2020-05-27)
 
 
