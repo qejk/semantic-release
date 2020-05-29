@@ -32,7 +32,7 @@ jobs:
         replace-title: false
         title-prefix-space: true
         uppercase-title: true
-        body-template: '[Link to %branch%](https://url/to/browse/ticket/%branch%) \n ${nextRelease.notes}'
+        body-template: '[Link to %branch%](https://url/to/browse/ticket/%branch%)'
         replace-body: false
         body-prefix-newline-count: 2
         uppercase-body: true
