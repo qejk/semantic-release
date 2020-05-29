@@ -1,4 +1,4 @@
-name: Node Continuous Deployment
+name: Node/Release
 
 on:
   push:
@@ -11,11 +11,11 @@ jobs:
     strategy:
       matrix:
         node: [ '13.9.0' ]
-    name: Node ${{ matrix.node }} environment
+    name: Node@${{ matrix.node }}
     steps:
     - name: Code checkout
       uses: actions/checkout@v2.0.0
-    - name: Setup Node Environment
+    - name: Setup Node@${{ matrix.node-version }}
       uses: actions/setup-node@v1.4.1
       with:
         node-version: ${{ matrix.node }}
