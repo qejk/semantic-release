@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 name: Prepare
+=======
+name: Release
+>>>>>>> develop
 
 on:
   push:
     branches: [ develop ]
 
 jobs:
+<<<<<<< HEAD
   build_and_prepare_release_from_develop_with_semantic_release:
+=======
+  build_and_publish_with_semantic_release:
+>>>>>>> develop
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,7 +31,11 @@ jobs:
     - name: Install dependencies
       uses: jaid/action-npm-install@v1.2.1
     - run: yarn build
+<<<<<<< HEAD
     - name: Simulate(dry-run) Semantic Release
+=======
+    - name: Dry run Semantic Release
+>>>>>>> develop
       id: semantic
       uses: cycjimmy/semantic-release-action@v2
       with:
@@ -36,8 +48,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+<<<<<<< HEAD
     - name: Output simulated release
       run: |
         echo  Simulated release of ${{ steps.semantic.outputs.new_release_version }} from develop
         echo Release notes for version ${{ steps.semantic.outputs.new_release_version }}
         echo ${{ steps.semantic.outputs.new_release_notes }}
+=======
+>>>>>>> develop
