@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '13.9.0' ]
-    name: Node@${{ matrix.node }}
+        node-version: [ '13.9.0' ]
+    name: Node@${{ matrix.node-version }}
     steps:
     - name: Code checkout
       uses: actions/checkout@v2.0.0
-    - name: Setup Node@${{ matrix.node }}
+    - name: Setup Node@${{ matrix.node-version }}
       uses: actions/setup-node@v1.4.1
       with:
-        node-version: ${{ matrix.node }}
+        node-version: ${{ matrix.node-version }}
       # Use jaid/action-npm-install to ensure that correct package manager is used for
       # installing dependencies (based of existence yarn.lock/package-lock.json)
     - name: Install dependencies
@@ -27,7 +27,7 @@ jobs:
       id: semantic
       uses: cycjimmy/semantic-release-action@v2
       with:
-        branch: develop
+        branch: master
         dry_run: true
         extra_plugins: |
           @semantic-release/changelog
