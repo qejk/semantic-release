@@ -1,4 +1,4 @@
- # Evaluates on push event if release is necessary and if so - create a release Pull Request
+# Evaluates on push event if release is necessary and if so - create a release Pull Request
 name: Push to release branches
 on:
   push:
