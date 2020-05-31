@@ -22,6 +22,9 @@ function pow(a, b) {
 function pi() {
   return Math.PI;
 }
+function equal(a, b) {
+  return a === b;
+}
 
 module.exports = {
   add,
@@ -32,4 +35,5 @@ module.exports = {
   decrement,
   pow,
   pi,
+  equal,
 };
