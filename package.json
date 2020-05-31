@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-testing-with-github",
-  "version": "1.6.0",
+  "version": "1.6.4",
   "repository": "https://github.com/qejk/semantic-release-test",
   "main": "index.js",
   "devDependencies": {
@@ -13,6 +13,7 @@
   "scripts": {
     "test": "jest test.js",
     "build": "echo build",
+    "format": "echo format",
     "lint": "echo lint",
     "semantic-release": "semantic-release"
   }
