@@ -156,7 +156,7 @@ jobs:
       - name: Create release PR
         id: create-pr
         uses: peter-evans/create-pull-request@v2
-        if: steps.pr.outputs.result != 0 steps.semantic.outputs.new_release_published == 'true'
+        if: steps.pr.outputs.result != 0 && steps.semantic.outputs.new_release_published == 'true'
         with:
           token: ${{ env.GITHUB_TOKEN }}
           commit-message: '${{ github.event.head_commit.message }}'
