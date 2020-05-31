@@ -70,7 +70,7 @@ jobs:
         with:
           fetch-depth: 0
         # Evaluate if release is necessary and if so - create a automergable release PR and notify the original creator
-      - name: commit format changes and create authors file
+      - name: Commit format changes and create authors file
         run: |
           git config --local user.email "${{ env.USER_EMAIL }}"
           git config --local user.name "${{ env.USERNAME }}"
@@ -89,7 +89,7 @@ jobs:
           echo -e "\r\n$(date)" >> AUTHORS
           git add -A
           git diff-index --quiet HEAD || git commit -m "Updating AUTHORS 📓" -a
-      - name: semantic-release
+      - name: Publish with Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         env:
@@ -121,7 +121,7 @@ jobs:
         with:
           githubToken: ${{ env.GITHUB_TOKEN }}
           output: '_<br />&nbsp;&nbsp;_'
-      - name: get original PR number
+      - name: Get original PR number
         uses: actions/github-script@v1
         id: pr
         if: steps.semantic.outputs.new_release_published == 'true'
@@ -137,7 +137,7 @@ jobs:
             if (result.data.length >= 1) {
               return result.data[0].number
             } else return 0
-      - name: get original PR user
+      - name: Get original PR user
         uses: actions/github-script@v1
         id: login
         if: steps.pr.outputs.result != 0 && steps.semantic.outputs.new_release_published == 'true'
@@ -153,7 +153,7 @@ jobs:
             if (result.data.user === true && result.data.user.login === true) {
               return result.data.user.login
             } else return '${{ env.USERNAME }}';
-      - name: create release PR
+      - name: Create release PR
         id: create-pr
         uses: peter-evans/create-pull-request@v2
         if: steps.pr.outputs.result != 0 steps.semantic.outputs.new_release_published == 'true'
@@ -190,7 +190,7 @@ jobs:
           assignees: '${{ steps.login.outputs.result }}, ${{ env.USERNAME }}'
           reviewers:  ${{ env.USERNAME }}
           branch: '${{ steps.semantic.outputs.new_release_version }}'
-      - name: notify initial commiter of change
+      - name: Notify initial commiter of change
         uses: peter-evans/create-or-update-comment@v1
         if: steps.login.outputs.result != '' && steps.semantic.outputs.new_release_published == 'true'
         with:
