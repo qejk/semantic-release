@@ -16,5 +16,8 @@ function increment(a) {
 function decrement(a) {
   return a - 1;
 }
+function pow(a, b) {
+  return Math.pow(a, b);
+}
 
-module.exports = {add, subtract, multiply, divide, increment, decrement};
+module.exports = {add, subtract, multiply, divide, increment, decrement, pow};
