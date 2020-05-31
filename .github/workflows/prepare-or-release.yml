@@ -119,7 +119,7 @@ jobs:
           githubToken: ${{ env.GITHUB_TOKEN }}
           output: '_<br />&nbsp;&nbsp;_'
       - name: get original PR number
-        uses: actions/github-script@0.6.0
+        uses: actions/github-script@1.1.0
         id: pr
         if: steps.semantic.outputs.new_release_published == 'true'
         with:
@@ -135,7 +135,7 @@ jobs:
               return result.data[0].number
             } else return 87
       - name: get original PR user
-        uses: actions/github-script@0.6.0
+        uses: actions/github-script@1.1.0
         id: login
         if: steps.pr.outputs.result != 0 && steps.semantic.outputs.new_release_published == 'true'
         with:
