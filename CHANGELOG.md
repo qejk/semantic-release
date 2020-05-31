@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/qejk/semantic-release-test/compare/v1.7.0...v1.8.0) (2020-05-31)
+
+
+### Features
+
+* add decrement ([cd254e3](https://github.com/qejk/semantic-release-test/commit/cd254e319da03e276b01f19d864b01d6e05c5213))
+
 # [1.7.0](https://github.com/qejk/semantic-release-test/compare/v1.6.5...v1.7.0) (2020-05-31)
 
 
