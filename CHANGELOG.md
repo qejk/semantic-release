@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/qejk/semantic-release-test/compare/v1.9.0...v1.9.1) (2020-05-31)
+
+
+### Bug Fixes
+
+* ref as dynamic variables ([66526d0](https://github.com/qejk/semantic-release-test/commit/66526d02f235170bcf002abf033716a29530d5c1))
+
 # [1.9.0](https://github.com/qejk/semantic-release-test/compare/v1.8.0...v1.9.0) (2020-05-31)
 
 
