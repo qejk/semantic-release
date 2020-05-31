@@ -19,5 +19,17 @@ function decrement(a) {
 function pow(a, b) {
   return Math.pow(a, b);
 }
+function pi() {
+  return Math.PI;
+}
 
-module.exports = {add, subtract, multiply, divide, increment, decrement, pow};
+module.exports = {
+  add,
+  subtract,
+  multiply,
+  divide,
+  increment,
+  decrement,
+  pow,
+  pi,
+};

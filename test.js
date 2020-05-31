@@ -6,6 +6,7 @@ const {
   increment,
   decrement,
   pow,
+  pi,
 } = require(".");
 
 describe("tests", () => {
@@ -30,5 +31,8 @@ describe("tests", () => {
   });
   test("pow", () => {
     expect(pow(2, 2)).toEqual(4);
+  });
+  test("pi", () => {
+    expect(pi()).toEqual(Math.PI);
   });
 });
