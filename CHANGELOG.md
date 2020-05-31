@@ -1,3 +1,42 @@
+# [1.7.0](https://github.com/qejk/semantic-release-test/compare/v1.6.5...v1.7.0) (2020-05-31)
+
+
+### Bug Fixes
+
+* add develop branch ([6d9d040](https://github.com/qejk/semantic-release-test/commit/6d9d04007af4ba2fe6c422069523607be6728593))
+* branch + node-version ([1e605f3](https://github.com/qejk/semantic-release-test/commit/1e605f35a2d31de9dbd327665b0930c047a6e41b))
+* diff ([73cd3c8](https://github.com/qejk/semantic-release-test/commit/73cd3c84cf2b48aa87c3ab6afabe358e1dea918e))
+* double uses ([d3664ee](https://github.com/qejk/semantic-release-test/commit/d3664ee0e65c69422195b09168ebc4ce90967418))
+* missing import on test ([12da535](https://github.com/qejk/semantic-release-test/commit/12da535fe1efcddb22f1815f1b064f463d71eb62))
+* name dupe ([53e17ca](https://github.com/qejk/semantic-release-test/commit/53e17ca3e6b2a820214e0b5d4307b225d521bf13))
+* output ([c08154b](https://github.com/qejk/semantic-release-test/commit/c08154b82f249f77cb5e166e97814569c14851b5))
+* output ([0b425a9](https://github.com/qejk/semantic-release-test/commit/0b425a93c2b45cb82d6d4e088ef25db7726c0159))
+* pin version ([f43435e](https://github.com/qejk/semantic-release-test/commit/f43435eb59d171598e18de115a7787cef344ad08))
+* remove gitleaks temp ([25ebf76](https://github.com/qejk/semantic-release-test/commit/25ebf7605e257bad306eb6a27ce140b63b347b8e))
+* remove tags ([ccfa316](https://github.com/qejk/semantic-release-test/commit/ccfa316a33dd133cd80599ec6a678ad5859b11ba))
+* syntax ([b86ba51](https://github.com/qejk/semantic-release-test/commit/b86ba51e0ced4d2c6dad53121ecce248b81da80e))
+* syntax on action ([75d0905](https://github.com/qejk/semantic-release-test/commit/75d09056524e5a9b70848c70ec4b94374a943ec2))
+* temp disable gitleaks ([a2a7f4f](https://github.com/qejk/semantic-release-test/commit/a2a7f4f5203027d28337041c85b662f6529089c8))
+* trailing dupe ([bf7ea12](https://github.com/qejk/semantic-release-test/commit/bf7ea1203c4b393cca299afe59af897618b496dc))
+* workflow ([cfd0f68](https://github.com/qejk/semantic-release-test/commit/cfd0f68cfe77cfb4b0e91b74afc712a4be1f214c))
+* workflows ([7e1513e](https://github.com/qejk/semantic-release-test/commit/7e1513ee867bd88e78820e7c2a8077c47018edf6))
+
+
+### Features
+
+* add check release ([dd93624](https://github.com/qejk/semantic-release-test/commit/dd936246cef880dd786d6975f73f3856b067213a))
+* add divide ([6710d0a](https://github.com/qejk/semantic-release-test/commit/6710d0ae3333a488626adc3421e03d0eb8c28755))
+* add gitleaks ([a0a237e](https://github.com/qejk/semantic-release-test/commit/a0a237e5210e6cdd6b91a6dd1db4d8c87d63514f))
+* add misspell ([075ec5b](https://github.com/qejk/semantic-release-test/commit/075ec5bdb2be7936a097c73ae5e9931f08f0e9e4))
+* add support for 13.x and 14.x node versions ([c82dd98](https://github.com/qejk/semantic-release-test/commit/c82dd9841e477a27f2d17d3a01aff8b9be60b58a))
+* add sync-labels ([7c4a39e](https://github.com/qejk/semantic-release-test/commit/7c4a39e06940cbc8d3d41c5619d5a2481f04bf90))
+* simplify release ([612667c](https://github.com/qejk/semantic-release-test/commit/612667c146cf6d27e1c6109e5fe03e0c9550a397))
+
+
+### Reverts
+
+* job separation ([2071ec0](https://github.com/qejk/semantic-release-test/commit/2071ec08c34c269818ebfcca2c69563ccc2a7e0e))
+
 ## [1.6.5](https://github.com/qejk/semantic-release-test/compare/v1.6.4...v1.6.5) (2020-05-31)
 
 
