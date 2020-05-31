@@ -62,9 +62,9 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      USERNAME: ${{ github.event.github.actor }}
-      USER_EMAIL: ${{ github.event.github.actor }}@${{ github.event.github.actor }}.com
-      REPOSITORY_NAME: ${{ github.event.repository.name }}
+      USERNAME: ${{ github.actor }}
+      USER_EMAIL: ${{ github.actor }}@${{ github.actor }}.com
+      REPOSITORY_NAME: ${{ github.repository.name }}
     steps:
       - uses: actions/checkout@v2
         with:
