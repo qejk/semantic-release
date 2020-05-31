@@ -1,13 +1,10 @@
 name: "Update Pull Request"
+
 on: pull_request
 
 jobs:
-  pr_update_text:
+  pr_update_info:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ '13.9.0' ]
-    name: Node ${{ matrix.node }} environment
     steps:
     - name: Checkout
       uses: actions/checkout@v2

@@ -1,27 +1,27 @@
-name: Node Continuous Integration
+name: Test
 
-on:
-  pull_request:
-    branches: [ master ]
+on: push
+
+env:
+  CI: true
 
 jobs:
-  test_and_simulate_release:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '13.9.0' ]
-    name: Node ${{ matrix.node }} environment
+        node-version: [ 13.x, 14.x ]
+    name: Node@${{ matrix.node-version }}
     steps:
     - name: Code checkout
       uses: actions/checkout@v2.0.0
-    - name: Setup Node Environment
+    - name: Setup Node@${{ matrix.node-version }}
       uses: actions/setup-node@v1.4.1
       with:
-        node-version: ${{ matrix.node }}
+        node-version: ${{ matrix.node-version }}
       # Use jaid/action-npm-install to ensure that correct package manager is used for
       # installing dependencies (based of existence yarn.lock/package-lock.json)
     - name: Install dependencies
       uses: jaid/action-npm-install@v1.2.1
     - run: yarn lint
     - run: yarn test
-    - run: yarn build
