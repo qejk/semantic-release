@@ -223,7 +223,7 @@ jobs:
       - run: yarn test
   # Lint code and comment back if possible
   lint:
-    name: Ling(with reviewdog)
+    name: Lint(with reviewdog)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
