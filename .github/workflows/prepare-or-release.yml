@@ -200,22 +200,7 @@ jobs:
             [Here you can follow the release.](https://github.com/trilom/file-changes-action/pull/${{ steps.create-pr.outputs.pr_number }})
             Please use this new **Pull Request** if there are any issues to communicate further.
             Thanks!
-  # Make sure we can successfully build
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13.x'
-        # Use jaid/action-npm-install to ensure that correct package manager is used for
-        # installing dependencies (based of existence yarn.lock/package-lock.json)
-      - name: Install dependencies
-        uses: jaid/action-npm-install@v1.2.1
-      - run: yarn build
-  # unit test with jest
+  # Run tests
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -245,3 +230,18 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
           eslint_flags: 'src/**/*.ts'
+  # Make sure we can successfully build
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+        # Use jaid/action-npm-install to ensure that correct package manager is used for
+        # installing dependencies (based of existence yarn.lock/package-lock.json)
+      - name: Install dependencies
+        uses: jaid/action-npm-install@v1.2.1
+      - run: yarn build
