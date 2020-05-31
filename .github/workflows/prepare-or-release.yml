@@ -222,8 +222,8 @@ jobs:
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test
   # Lint code and comment back if possible
-  lintdog:
-    name: eslintdog (reviewdog)
+  lint:
+    name: Ling(with reviewdog)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
