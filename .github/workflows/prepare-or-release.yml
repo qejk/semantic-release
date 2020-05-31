@@ -62,7 +62,7 @@ jobs:
         # Use jaid/action-npm-install to ensure that correct package manager is used for
         # installing dependencies (based of existence yarn.lock/package-lock.json)
       - name: Install dependencies
-        uses: jaid/action-npm-install@v1.
+        uses: jaid/action-npm-install@v1.2.1
       - run: yarn build
   # unit test with jest
   test:
@@ -80,7 +80,7 @@ jobs:
         # Use jaid/action-npm-install to ensure that correct package manager is used for
         # installing dependencies (based of existence yarn.lock/package-lock.json)
       - name: Install dependencies
-        uses: jaid/action-npm-install@v1.
+        uses: jaid/action-npm-install@v1.2.1
       - run: yarn test
   # Lint code and comment back if possible
   lintdog:
