@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/qejk/semantic-release-test/compare/v1.6.4...v1.6.5) (2020-05-31)
+
+
+### Bug Fixes
+
+* env ([f62cb65](https://github.com/qejk/semantic-release-test/commit/f62cb651cfebae57164aa2e38a09180e896bf37f))
+
 ## [1.6.4](https://github.com/qejk/semantic-release-test/compare/v1.6.3...v1.6.4) (2020-05-31)
 
 
