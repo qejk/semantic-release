@@ -13,9 +13,6 @@ jobs:
     if: >
       github.actor != 'semantic-release-bot'
       && ! contains(github.event.head_commit.message, 'chore(release):')
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -24,7 +21,8 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         env:
-          SEMANTIC_RELEASE_PACKAGE: '@${{ github.repository }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           semantic_version: 17.0.8
           dry_run: false
@@ -90,6 +88,8 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           SEMANTIC_RELEASE_PACKAGE: '@${{ github.repository }}'
         with:
           semantic_version: 17.0.8
