@@ -44,7 +44,7 @@ jobs:
         with:
           node-version: 13
           registry-url: 'https://npm.pkg.github.com'
-          scope: eveble
+          scope: ${{ github.event.github.actor }}
       # - name: Publish To GitHub Package Registry
       #   if: steps.semantic.outputs.new_release_published == 'true'
       #   run: npm publish
@@ -61,6 +61,9 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      USERNAME: ${{ github.event.github.actor }}
+      USER_EMAIL: ${{ github.event.github.actor }}@${{ github.event.github.actor }}.com
+      REPOSITORY_NAME: ${{ github.event.repository.name }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -68,8 +71,8 @@ jobs:
         # Evaluate if release is necessary and if so - create a automergable release PR and notify the original creator
       - name: commit format changes and create authors file
         run: |
-          git config --local user.email "eveble@eveble.com"
-          git config --local user.name "eveble"
+          git config --local user.email "${{ env.USER_EMAIL }}"
+          git config --local user.name "${{ env.USERNAME }}"
           yarn build
           yarn format
           git add -A
@@ -78,7 +81,7 @@ jobs:
           git add -A
           git diff-index --quiet HEAD || git commit -m "Adding release changes ⚙️" -a
           git log --format='%aN <%aE>%n%cN <%cE>' | sort -u > AUTHORS
-          sed -i '/eveble/d' AUTHORS
+          sed -i '/${{ env.USERNAME }}/d' AUTHORS
           sed -i '/semantic-release-bot/d' AUTHORS
           sed -i '/GitHub <noreply@github.com>/d' AUTHORS
           sed -i '/dependabot/d' AUTHORS
@@ -107,8 +110,8 @@ jobs:
       - name: Push potential formatting changes since there is no release
         if: steps.semantic.outputs.new_release_published == 'false'
         run: |
-          git config --local user.email "eveble@eveble.com"
-          git config --local user.name "eveble"
+          git config --local user.email "${{ env.USER_EMAIL }}"
+          git config --local user.name "${{ env.USERNAME }}"
           git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${{ github.ref }}
       - name: Get changed files and format for automerge PR body
         id: file_changes
@@ -148,7 +151,7 @@ jobs:
             })
             if (result.data.user === true && result.data.user.login === true) {
               return result.data.user.login
-            } else return 'trilom';
+            } else return '${{ env.USERNAME }}';
       - name: create release PR
         id: create-pr
         uses: peter-evans/create-pull-request@v2
@@ -156,11 +159,11 @@ jobs:
         with:
           token: ${{ env.GITHUB_TOKEN }}
           commit-message: '${{ github.event.head_commit.message }}'
-          committer: Eveble <eveble@eveble.com>
+          committer: ${{ env.USERNAME }} <${{ env.USER_EMAIL }}>
           author: ${{ steps.login.outputs.result }} <${{ steps.login.outputs.result }}@users.noreply.github.com>
           title: 'releases/v${{ steps.semantic.outputs.new_release_version }} [@${{ steps.login.outputs.result }}] - ${{ github.event.head_commit.message }}'
           body: |
-            # @${{ steps.login.outputs.result }} would like to merge into file-changes-action
+            # @${{ steps.login.outputs.result }} would like to merge into ${{ env.REPOSITORY_NAME }}
             [**compare link**](${{ github.event.compare }})
             ## Commits
             ```json
@@ -183,8 +186,8 @@ jobs:
 
             &nbsp;&nbsp;_${{ steps.file_changes.outputs.files_removed}}_
           labels: 'automated pr'
-          assignees: '${{ steps.login.outputs.result }},trilom'
-          reviewers: trilom
+          assignees: '${{ steps.login.outputs.result }}, ${{ env.USERNAME }}'
+          reviewers:  ${{ env.USERNAME }}
           branch: '${{ steps.semantic.outputs.new_release_version }}'
       - name: notify initial commiter of change
         uses: peter-evans/create-or-update-comment@v1
@@ -196,7 +199,7 @@ jobs:
             Hey @${{ steps.login.outputs.result }},
             This merge has triggered a release, hurray!
 
-            [Here you can follow the release.](https://github.com/trilom/file-changes-action/pull/${{ steps.create-pr.outputs.pr_number }})
+            [Here you can follow the release.](https://github.com/${{ env.USERNAME }}/${{ env.REPOSITORY_NAME }}/pull/${{ steps.create-pr.outputs.pr_number }})
             Please use this new **Pull Request** if there are any issues to communicate further.
             Thanks!
   # Run tests
