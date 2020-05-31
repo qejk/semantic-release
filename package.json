@@ -13,6 +13,7 @@
   "scripts": {
     "test": "jest test.js",
     "build": "echo build",
+    "format": "echo format",
     "lint": "echo lint",
     "semantic-release": "semantic-release"
   }
