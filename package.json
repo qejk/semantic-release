@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-testing-with-github",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "repository": "https://github.com/qejk/semantic-release-test",
   "main": "index.js",
   "devDependencies": {

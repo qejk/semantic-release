@@ -1,3 +1,12 @@
+## [1.9.3](https://github.com/qejk/semantic-release-test/compare/v1.9.2...v1.9.3) (2020-05-31)
+
+
+### Bug Fixes
+
+* add missing operator ([1cdf8fd](https://github.com/qejk/semantic-release-test/commit/1cdf8fd34092fb2bfd961641a1ceafaa0ec92874))
+* create release PR running on pushes without PR ([b41daa2](https://github.com/qejk/semantic-release-test/commit/b41daa200d98129ea63bec7b68fcf987e09b0ecb))
+* wrong job name ([3c18263](https://github.com/qejk/semantic-release-test/commit/3c182632007df27f99004d97126f2484e31f0ad9))
+
 ## [1.9.2](https://github.com/qejk/semantic-release-test/compare/v1.9.1...v1.9.2) (2020-05-31)
 
 
