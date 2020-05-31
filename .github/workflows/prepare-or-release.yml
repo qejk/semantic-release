@@ -2,7 +2,7 @@
 name: Push or Release branches
 on:
   push:
-    branches: [master, next, alpha, beta]
+    branches: [master, develop, next, alpha, beta]
     tags-ignore: ['**']
 jobs:
   # Release with semantic-release an auto-merged branch to Github repository, NPM, Github package registry
