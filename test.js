@@ -1,4 +1,4 @@
-const {add, subtract, multiply} = require(".");
+const {add, subtract, multiply, divide} = require(".");
 
 describe("tests", () => {
   test("add", () => {
