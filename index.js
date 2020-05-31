@@ -13,5 +13,8 @@ function divide(a, b) {
 function increment(a) {
   return a + 1;
 }
+function decrement(a) {
+  return a - 1;
+}
 
-module.exports = {add, subtract, multiply, divide, increment};
+module.exports = {add, subtract, multiply, divide, increment, decrement};

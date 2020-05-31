@@ -1,4 +1,4 @@
-const {add, subtract, multiply, divide, increment} = require(".");
+const {add, subtract, multiply, divide, increment, decrement} = require(".");
 
 describe("tests", () => {
   test("add", () => {
@@ -16,5 +16,8 @@ describe("tests", () => {
   });
   test("increment", () => {
     expect(increment(4)).toEqual(5);
+  });
+  test("decrement", () => {
+    expect(decrement(4)).toEqual(3);
   });
 });
