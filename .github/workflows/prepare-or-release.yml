@@ -45,11 +45,11 @@ jobs:
           node-version: 13
           registry-url: 'https://npm.pkg.github.com'
           scope: eveble
-      - name: Publish To GitHub Package Registry
-        if: steps.semantic.outputs.new_release_published == 'true'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ env.GITHUB_TOKEN }}
+      # - name: Publish To GitHub Package Registry
+      #   if: steps.semantic.outputs.new_release_published == 'true'
+      #   run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ env.GITHUB_TOKEN }}
   # Create PR from release branch to master to prepare for release
   check-release:
     name: Check if we need to release
@@ -132,7 +132,7 @@ jobs:
             })
             if (result.data.length >= 1) {
               return result.data[0].number
-            } else return 87
+            } else return 0
       - name: get original PR user
         uses: actions/github-script@v1
         id: login
