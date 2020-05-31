@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/qejk/semantic-release-test/compare/v1.9.3...v1.10.0) (2020-05-31)
+
+
+### Features
+
+* [baz-999] add pi ([#32](https://github.com/qejk/semantic-release-test/issues/32)) ([67e9fa6](https://github.com/qejk/semantic-release-test/commit/67e9fa62957d5d9af559dc0fe7a660be1ebebccd))
+
 ## [1.9.3](https://github.com/qejk/semantic-release-test/compare/v1.9.2...v1.9.3) (2020-05-31)
 
 
