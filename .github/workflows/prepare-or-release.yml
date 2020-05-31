@@ -66,12 +66,11 @@ jobs:
       - run: yarn build
   # unit test with jest
   test:
-    name: Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Node@${{ matrix.node-version }}
+    name: Test on Node.js@${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
