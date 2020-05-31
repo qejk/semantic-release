@@ -85,6 +85,8 @@ jobs:
           sed -i '/${{ env.USERNAME }}/d' AUTHORS
           sed -i '/semantic-release-bot/d' AUTHORS
           sed -i '/GitHub <noreply@github.com>/d' AUTHORS
+          sed -i '/zeke@github.com/d' AUTHORS
+          sed -i '/zeke@sikelianos.com/d' AUTHORS
           sed -i '/dependabot/d' AUTHORS
           echo -e "\r\n$(date)" >> AUTHORS
           git add -A
