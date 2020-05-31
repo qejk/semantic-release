@@ -1,3 +1,15 @@
+# [1.9.0](https://github.com/qejk/semantic-release-test/compare/v1.8.0...v1.9.0) (2020-05-31)
+
+
+### Bug Fixes
+
+* comment out publication on github package registry ([edc9134](https://github.com/qejk/semantic-release-test/commit/edc9134f2024111e37bc38601971e25779797cbd))
+
+
+### Features
+
+* [bar-1234] add pow ([#30](https://github.com/qejk/semantic-release-test/issues/30)) ([f08b848](https://github.com/qejk/semantic-release-test/commit/f08b8480e71eef9224011e9ed2dbc6322625c8d1))
+
 # [1.8.0](https://github.com/qejk/semantic-release-test/compare/v1.7.0...v1.8.0) (2020-05-31)
 
 
