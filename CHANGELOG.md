@@ -4,6 +4,21 @@
 ### Bug Fixes
 
 * git commit syntax ([6432882](https://github.com/qejk/semantic-release-test/commit/6432882c8d3dc0f9f2e6190d76db13f560ffeb83))
+* github actions bot config ([60b32ad](https://github.com/qejk/semantic-release-test/commit/60b32adbc490aa927b1dfdd10743616cac08f8c7))
+
+
+### Features
+
+* [baz-999] add pi ([#32](https://github.com/qejk/semantic-release-test/issues/32)) ([67e9fa6](https://github.com/qejk/semantic-release-test/commit/67e9fa62957d5d9af559dc0fe7a660be1ebebccd))
+* [foo-107] add equal ([#33](https://github.com/qejk/semantic-release-test/issues/33)) ([70da45f](https://github.com/qejk/semantic-release-test/commit/70da45ffc9ba2ea556c4dd3b61e79b5e1c724ee3))
+* remove email associated with trilom/file-changes-action author ([86d6deb](https://github.com/qejk/semantic-release-test/commit/86d6deba15f6ce49841e5fa81ca91b7361b95e19))
+
+# [1.10.0](https://github.com/qejk/semantic-release-test/compare/v1.9.3...v1.10.0) (2020-06-01)
+
+
+### Bug Fixes
+
+* git commit syntax ([6432882](https://github.com/qejk/semantic-release-test/commit/6432882c8d3dc0f9f2e6190d76db13f560ffeb83))
 
 
 ### Features
