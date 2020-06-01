@@ -69,6 +69,8 @@ jobs:
         # Evaluate if release is necessary and if so - create a automergable release PR and notify the original creator
       - name: Commit format changes and create authors file
         run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Action""
           yarn build
           yarn format
           git add -A
@@ -109,6 +111,8 @@ jobs:
       - name: Push potential formatting changes since there is no release
         if: steps.semantic.outputs.new_release_published == 'false'
         run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Action""
           git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${{ github.ref }}
       - name: Get changed files and format for automerge PR body
         id: file_changes
