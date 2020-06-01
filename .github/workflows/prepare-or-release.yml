@@ -36,16 +36,13 @@ jobs:
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           echo ${{ steps.semantic.outputs.new_release_version }}
-          echo ${{ steps.semantic.outputs.new_release_major_version }}
-          echo ${{ steps.semantic.outputs.new_release_minor_version }}
-          echo ${{ steps.semantic.outputs.new_release_patch_version }}
-      - name: Setup Node.js with GitHub Package Registry
-        if: steps.semantic.outputs.new_release_published == 'true'
-        uses: actions/setup-node@v1
-        with:
-          node-version: 13
-          registry-url: 'https://npm.pkg.github.com'
-          scope: ${{ env.USERNAME }}
+      # - name: Setup Node.js with GitHub Package Registry
+      #   if: steps.semantic.outputs.new_release_published == 'true'
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 13
+      #     registry-url: 'https://npm.pkg.github.com'
+      #     scope: ${{ env.USERNAME }}
       # - name: Publish To GitHub Package Registry
       #   if: steps.semantic.outputs.new_release_published == 'true'
       #   run: npm publish
@@ -72,15 +69,13 @@ jobs:
         # Evaluate if release is necessary and if so - create a automergable release PR and notify the original creator
       - name: Commit format changes and create authors file
         run: |
-          git config --local user.email "${{ env.USER_EMAIL }}"
-          git config --local user.name "${{ env.USERNAME }}"
           yarn build
           yarn format
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Adding format changes 🤖" -a
+          git diff-index --quiet HEAD || git commit -m  --allow-empty --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" "style: add format changes 🤖" -a
           yarn build
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Adding release changes ⚙️" -a
+          git diff-index --quiet HEAD || git commit -m  --allow-empty --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" "chore: add release changes ⚙️" -a
           git log --format='%aN <%aE>%n%cN <%cE>' | sort -u > AUTHORS
           sed -i '/${{ env.USERNAME }}/d' AUTHORS
           sed -i '/semantic-release-bot/d' AUTHORS
@@ -90,13 +85,14 @@ jobs:
           sed -i '/dependabot/d' AUTHORS
           echo -e "\r\n$(date)" >> AUTHORS
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Updating AUTHORS 📓" -a
+          git diff-index --quiet HEAD || git commit -m  --allow-empty --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" "chore: update AUTHORS 📓" -a
       - name: Publish with Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         env:
           SEMANTIC_RELEASE_PACKAGE: '@${{ github.repository }}'
         with:
+          branch: master
           semantic_version: 17.0.8
           extra_plugins: |
             @semantic-release/changelog
@@ -113,8 +109,6 @@ jobs:
       - name: Push potential formatting changes since there is no release
         if: steps.semantic.outputs.new_release_published == 'false'
         run: |
-          git config --local user.email "${{ env.USER_EMAIL }}"
-          git config --local user.name "${{ env.USERNAME }}"
           git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${{ github.ref }}
       - name: Get changed files and format for automerge PR body
         id: file_changes
