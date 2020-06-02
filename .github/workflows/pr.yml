@@ -50,7 +50,6 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    needs: [test-unit]
     name: Node@${{ matrix.node-version}}|Integration test
     steps:
       - uses: actions/checkout@v2
