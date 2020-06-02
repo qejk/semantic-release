@@ -13,7 +13,6 @@ jobs:
       - uses: kentaro-m/auto-assign-action@v1.1.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-  # Unit tests with Mocha
   test_unit:
     runs-on: ubuntu-latest
     strategy:
@@ -47,7 +46,6 @@ jobs:
             github.issues.addLabels({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
               labels: ['tested:unit']
             })
-  # Integration tests with Mocha
   test_integration:
     runs-on: ubuntu-latest
     strategy:
