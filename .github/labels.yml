@@ -1,33 +1,47 @@
-
----
 # Default GitHub labels
-  -color: d73a4a
-  name: bug
+-name: bug
   description: Something isn't working
-  -color: 0075ca
-  name: documentation
+  color: d73a4a
+-name: documentation
   description: Improvements or additions to documentation
-  -color: cfd3d7
-  name: duplicate
+  color: 0075ca
+-name: duplicate
   description: This issue or pull request already exists
-  -color: a2eeef
-  name: enhancement
+  color: cfd3d7
+-name: enhancement
   description: New feature or request
-  -color: 7057ff
-  name: good first issue
+  color: a2eeef
+-name: good first issue
   description: Good for newcomers
-  -color: 008672
-  name: help wanted
+  color: 7057ff
+-name: help wanted
   description: Extra attention is needed
-  -color: e4e669
-  name: invalid
+  color: 008672
+-name: invalid
   description: This doesn't seem right
-  -color: d876e3
-  name: question
+  color: e4e669
+-name: question
   description: Further information is requested
-  -color: ededed
-  name: released
+  color: d876e3
+-name: released
   description: Description (optional)
-  -color: ffffff
-  name: wontfix
+  color: ededed
+-name: wontfix
   description: This will not be worked on
+  color: ffffff
+# Custom
+- name: tested:unit
+  description: Code that has passed unit tests
+  color: 9520bc
+- name: tested:integration
+  description: Code that has passed integration tests
+  color: fc5aee
+- name: linted
+  description: Code that has been linted
+  color: 5F422D
+- name: formatted
+  description: Code that has been formatted
+  color: 76edd1
+- name: builds
+  description: Code that builds
+  color: 39bc44
