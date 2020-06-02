@@ -28,6 +28,9 @@ function equal(a, b) {
 function notEqual(a, b) {
   return a !== b;
 }
+function squareRoot(a) {
+  return a * a;
+}
 
 module.exports = {
   add,
@@ -40,4 +43,5 @@ module.exports = {
   pi,
   equal,
   notEqual,
+  squareRoot,
 };

@@ -9,6 +9,7 @@ const {
   pi,
   equal,
   notEqual,
+  squareRoot,
 } = require(".");
 
 describe("tests", () => {
@@ -42,5 +43,8 @@ describe("tests", () => {
   });
   test("notEqual", () => {
     expect(notEqual(2, 1)).toEqual(true);
+  });
+  test("squareRoot", () => {
+    expect(squareRoot(9)).toEqual(81);
   });
 });
