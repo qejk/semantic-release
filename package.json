@@ -12,6 +12,8 @@
   },
   "scripts": {
     "test": "jest test.js",
+    "test:unit": "jest test.js",
+    "test:integration": "jest test.js",
     "build": "echo build",
     "format": "echo format",
     "test:format": "echo format",
