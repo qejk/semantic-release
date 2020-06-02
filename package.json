@@ -18,6 +18,7 @@
     "format": "echo format",
     "test:format": "echo format",
     "test:coverage": "echo format",
+    "test:lint": "echo format",
     "coverage:ci": "echo format",
     "lint": "echo lint",
     "semantic-release": "semantic-release"
