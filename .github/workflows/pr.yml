@@ -32,11 +32,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'tested:unit') }}' == 'true') {
-              github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'tested:unit'
-              })
-            }
+            github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              name: 'tested:unit'
+            })
       - uses: actions/github-script@0.6.0
         if: contains(env.isFork, 'false')
         with:
@@ -66,11 +64,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'tested:integration') }}' == 'true') {
-              github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'tested:integration'
-              })
-            }
+            github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              name: 'tested:integration'
+            })
       - uses: actions/github-script@0.6.0
         if: contains(env.isFork, 'false')
         with:
@@ -119,11 +115,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'linted') }}' == 'true') {
-              github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'linted'
-              })
-            }
+            github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              name: 'linted'
+            })
   # Format and push code back
   test_format_or_format_and_push:
     name: prettier
@@ -192,11 +186,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'builds') }}' == 'true') {
-              github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'builds'
-              })
-            }
+            github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              name: 'builds'
+            })
       - uses: actions/github-script@0.6.0
         if: contains(env.isFork, 'false')
         with:
