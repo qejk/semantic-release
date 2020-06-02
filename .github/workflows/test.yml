@@ -6,22 +6,55 @@ env:
   CI: true
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  # Unit tests with Mocha
+  test_unit:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Node@${{ matrix.node-version }}
+    name: Unit tests on Node.js@${{ matrix.node-version }}
     steps:
-    - name: Code checkout
-      uses: actions/checkout@v2.0.0
-    - name: Setup Node@${{ matrix.node-version }}
-      uses: actions/setup-node@v1.4.1
-      with:
-        node-version: ${{ matrix.node-version }}
-      # Use jaid/action-npm-install to ensure that correct package manager is used for
-      # installing dependencies (based of existence yarn.lock/package-lock.json)
-    - name: Install dependencies
-      uses: jaid/action-npm-install@v1.2.1
-    - run: yarn lint
-    - run: yarn test
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        uses: jaid/action-npm-install@v1.2.1
+      - run: yarn test:unit
+  # Integration tests with Mocha
+  test_integration:
+    strategy:
+      matrix:
+        node-version: [ 13.x, 14.x ]
+    name: Integration tests on Node.js@${{ matrix.node-version }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        uses: jaid/action-npm-install@v1.2.1
+      - run: yarn test:integration
+  test_lint:
+    name: Test linting
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - name: Install dependencies
+        uses: jaid/action-npm-install@v1.2.1
+      - run: yarn test:lint
+  validate_test_coverage:
+    name: Validate test coverage
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - name: Install dependencies
+        uses: jaid/action-npm-install@v1.2.1
+      - run: yarn test:coverage
