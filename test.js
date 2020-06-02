@@ -49,6 +49,6 @@ describe("tests", () => {
     expect(squareRoot(9)).toEqual(81);
   });
   test("baz", () => {
-    expect(baz).toEqual("foo");
+    expect(baz).toEqual("baz");
   });
 });
