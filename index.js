@@ -32,6 +32,8 @@ function squareRoot(a) {
   return a * a;
 }
 
+const baz = "baz";
+
 module.exports = {
   add,
   subtract,
@@ -44,4 +46,5 @@ module.exports = {
   equal,
   notEqual,
   squareRoot,
+  baz,
 };
