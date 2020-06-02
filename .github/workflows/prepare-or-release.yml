@@ -67,7 +67,7 @@ jobs:
         with:
           fetch-depth: 0
         # Evaluate if release is necessary and if so - create a automergable release PR and notify the original creator
-      - name: Commit format changes and create authors file
+      - name: Format, create authors file and commit changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Action"
