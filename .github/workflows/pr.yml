@@ -69,6 +69,11 @@ jobs:
                 name: 'tested:unit'
               })
             }
+            if ('${{ contains(github.event.pull_request.labels.*.name, 'tested:integration') }}' == 'true') {
+              github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+                name: 'tested:integration'
+              })
+            }
       - uses: actions/github-script@0.6.0
         if: contains(env.isFork, 'false')
         with:
