@@ -49,7 +49,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Node@${{ matrix.node-version}}|Unit test
+    name: Node@${{ matrix.node-version}} / Unit test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -83,7 +83,7 @@ jobs:
       matrix:
         node-version: [ 13.x, 14.x ]
     needs: [test_unit]
-    name: Node@${{ matrix.node-version}}|Integration test
+    name: Node@${{ matrix.node-version}} / Integration test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
