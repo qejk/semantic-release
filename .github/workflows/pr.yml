@@ -28,7 +28,7 @@ jobs:
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test:unit
       - uses: actions/github-script@0.6.0
-        if: failure()
+        if: failure() && contains(env.isFork, 'false')
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -62,7 +62,7 @@ jobs:
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test:integration
       - uses: actions/github-script@0.6.0
-        if: failure()
+        if: failure() && contains(env.isFork, 'false')
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -145,7 +145,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
       - run: yarn test:format
       - name: Format and commit changes if check failed
-        if: failure() && github.actor != 'github-actions'
+        if: failure() && github.actor != 'github-actions' && contains(env.isFork, 'false')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -157,7 +157,7 @@ jobs:
           git diff-index --quiet HEAD || git commit --allow-empty -m "style: add format changes 🤖" -a
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:refs/heads/${{ github.head_ref }} && exit 0
       - uses: actions/github-script@0.6.0
-        if: failure()
+        if: failure() && contains(env.isFork, 'false')
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -188,7 +188,7 @@ jobs:
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn build
       - uses: actions/github-script@0.6.0
-        if: failure()
+        if: failure() && contains(env.isFork, 'false')
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
