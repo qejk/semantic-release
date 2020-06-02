@@ -8,6 +8,7 @@ const {
   pow,
   pi,
   equal,
+  notEqual,
 } = require(".");
 
 describe("tests", () => {
@@ -38,5 +39,8 @@ describe("tests", () => {
   });
   test("equal", () => {
     expect(equal(2, 2)).toEqual(true);
+  });
+  test("notEqual", () => {
+    expect(notEqual(2, 1)).toEqual(true);
   });
 });
