@@ -14,6 +14,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   # Unit tests with Mocha
   test_unit:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
@@ -47,6 +48,7 @@ jobs:
             })
   # Integration tests with Mocha
   test_integration:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
@@ -80,6 +82,7 @@ jobs:
               labels: ['tested:integration']
             })
   validate_test_coverage:
+    runs-on: ubuntu-latest
     name: Validate test coverage
     needs: [build]
     steps:

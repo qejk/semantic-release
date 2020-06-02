@@ -8,6 +8,7 @@ env:
 jobs:
   # Unit tests with Mocha
   test_unit:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
@@ -23,6 +24,7 @@ jobs:
       - run: yarn test:unit
   # Integration tests with Mocha
   test_integration:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
@@ -37,6 +39,7 @@ jobs:
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test:integration
   test_lint:
+    runs-on: ubuntu-latest
     name: Test linting
     steps:
       - uses: actions/checkout@v2
@@ -48,6 +51,7 @@ jobs:
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test:lint
   validate_test_coverage:
+    runs-on: ubuntu-latest
     name: Validate test coverage
     steps:
       - uses: actions/checkout@v2
