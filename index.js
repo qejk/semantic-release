@@ -25,6 +25,9 @@ function pi() {
 function equal(a, b) {
   return a === b;
 }
+function notEqual(a, b) {
+  return a !== b;
+}
 
 module.exports = {
   add,
@@ -36,4 +39,5 @@ module.exports = {
   pow,
   pi,
   equal,
+  notEqual,
 };
