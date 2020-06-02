@@ -252,7 +252,7 @@ jobs:
           eslint_flags: 'src/**/*.ts'
   # Make sure we can successfully build
   build:
-    name: Build
+    name: Node@13.x / Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

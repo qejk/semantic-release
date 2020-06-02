@@ -83,7 +83,7 @@ jobs:
       matrix:
         node-version: [ 13.x, 14.x ]
     needs: [test_unit]
-    name: Node@${{ matrix.node-version}} / Integration test
+    name: Node@${{ matrix.node-version }} / Integration test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -209,7 +209,7 @@ jobs:
   # Make sure we can successfully build
   build:
     runs-on: ubuntu-latest
-    name: Node@13.x|Build
+    name: Node@13.x / Build
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node@13.x
