@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Node@${{ matrix.node-version}}|Unit test
+    name: Node@${{ matrix.node-version }}|Unit test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -52,7 +52,7 @@ jobs:
       matrix:
         node-version: [ 13.x, 14.x ]
     needs: [test-unit]
-    name: Node@${{ matrix.node-version}}|Integration test
+    name: Node@${{ matrix.node-version }}|Integration test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -85,10 +85,10 @@ jobs:
     name: Validate test coverage
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node@${{env.NODE_VERSION}}
+      - name: Setup Node@${{ NODE_VERSION }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{env.NODE_VERSION}}
+          node-version: ${{ NODE_VERSION }}
       - name: Install dependencies
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test:coverage
@@ -178,13 +178,13 @@ jobs:
   # Make sure we can successfully build
   build:
     runs-on: ubuntu-latest
-    name: Node@${{env.NODE_VERSION}}|Build
+    name: Node@${{ NODE_VERSION }}|Build
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node@${{env.NODE_VERSION}}
+      - name: Setup Node@${{ NODE_VERSION }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{env.NODE_VERSION}}
+          node-version: ${{ NODE_VERSION }}
       - name: Install dependencies
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn build
