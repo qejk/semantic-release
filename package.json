@@ -14,6 +14,9 @@
     "test": "jest test.js",
     "build": "echo build",
     "format": "echo format",
+    "test:format": "echo format",
+    "test:coverage": "echo format",
+    "coverage:ci": "echo format",
     "lint": "echo lint",
     "semantic-release": "semantic-release"
   }
