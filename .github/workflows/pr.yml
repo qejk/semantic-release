@@ -2,7 +2,6 @@ name: Pull Request
 
 env:
   isFork: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
-  NODE_VERSION: '13.x'
 
 on: [pull_request]
 
@@ -85,10 +84,10 @@ jobs:
     name: Validate test coverage
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node@${{env.NODE_VERSION}}
+      - name: Setup Node@13.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{env.NODE_VERSION}}
+          node-version: '13.x'
       - name: Install dependencies
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn test:coverage
@@ -178,13 +177,13 @@ jobs:
   # Make sure we can successfully build
   build:
     runs-on: ubuntu-latest
-    name: Node@${{env.NODE_VERSION}}|Build
+    name: Node@13.x|Build
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node@${{env.NODE_VERSION}}
+      - name: Setup Node@13.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{env.NODE_VERSION}}
+          node-version: '13.x'
       - name: Install dependencies
         uses: jaid/action-npm-install@v1.2.1
       - run: yarn build
