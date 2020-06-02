@@ -18,10 +18,10 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Unit on Node.js@${{ matrix.node-version }}
+    name: Unit test|Node@${{ matrix.node-version
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -53,10 +53,10 @@ jobs:
       matrix:
         node-version: [ 13.x, 14.x ]
     needs: [test-unit]
-    name: Integration on Node.js@${{ matrix.node-version }}
+    name: Integration test|Node@${{ matrix.node-version
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -87,7 +87,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 13.x
@@ -185,7 +185,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '13.x'

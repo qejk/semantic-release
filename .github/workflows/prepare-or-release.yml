@@ -36,7 +36,7 @@ jobs:
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
           echo ${{ steps.semantic.outputs.new_release_version }}
-      # - name: Setup Node.js with GitHub Package Registry
+      # - name: Setup Node with GitHub Package Registry
       #   if: steps.semantic.outputs.new_release_published == 'true'
       #   uses: actions/setup-node@v1
       #   with:
@@ -208,10 +208,10 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Unit tests on Node.js@${{ matrix.node-version }}
+    name: Unit tests on Node@${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -226,10 +226,10 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Integration tests on Node.js@${{ matrix.node-version }}
+    name: Integration tests on Node@${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -256,7 +256,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '13.x'

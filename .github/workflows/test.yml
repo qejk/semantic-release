@@ -12,10 +12,10 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Unit tests | Node.js@${{ matrix.node-version }}
+    name: Unit tests|Node@${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -28,10 +28,10 @@ jobs:
     strategy:
       matrix:
         node-version: [ 13.x, 14.x ]
-    name: Integration tests | Node.js@${{ matrix.node-version }}
+    name: Integration tests|Node@${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -43,7 +43,7 @@ jobs:
     name: Test linting
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 13.x
@@ -55,7 +55,7 @@ jobs:
     name: Validate test coverage
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 13.x
