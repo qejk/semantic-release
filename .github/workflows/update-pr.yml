@@ -15,7 +15,7 @@ jobs:
   format_bug_pr_information:
     runs-on: ubuntu-latest
     name: Format bug pull request
-    # if: ${{ contains(github.event.pull_request.labels.*.names, 'bug') }}
+    if: ${{ contains(github.event.pull_request.title, 'bug') }}
     needs: [assign_labels]
     steps:
     - name: Checkout
@@ -25,65 +25,58 @@ jobs:
         echo "${{ github.event.pull_request.head.ref }}"
         echo "${{ github.base_ref }}"
         echo "${{ github.ref }}"
-    # - name: Read 'bug' body template
-    #   id: pull_request_body
-    #   uses: juliangruber/read-file-action@v1
-    #   with:
-    #     path: ./.github/ISSUE_TEMPLATE/bug_template.md
-    # - name: Update Pull Request
-    #   uses: tzkhan/pr-update-action@v1.1.1
-    #   with:
-    #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
-    #     branch-regex: '[a-z\d-_.\/]+'
-    #     lowercase-branch: true
-    #     title-template: '[%branch%]'
-    #     replace-title: false
-    #     title-prefix-space: true
-    #     uppercase-title: false
-    #     body-template: |
-    #       [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
-    #       ---
-    #       ${{ steps.pull_request_body.outputs.content }}
-    #     replace-body: false
-    #     body-prefix-newline-count: 2
-    #     uppercase-body: true
+    - name: Read 'bug' body template
+      id: pull_request_body
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./.github/ISSUE_TEMPLATE/bug_template.md
+    - name: Update Pull Request
+      uses: tzkhan/pr-update-action@v1.1.1
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        branch-regex: '[a-z\d-_.\/]+'
+        lowercase-branch: true
+        title-template: '[%branch%]'
+        replace-title: false
+        title-prefix-space: true
+        uppercase-title: false
+        body-template: |
+          [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
+          ---
+          ${{ steps.pull_request_body.outputs.content }}
+        replace-body: false
+        body-prefix-newline-count: 2
+        uppercase-body: true
   format_fix_pr_information:
     runs-on: ubuntu-latest
     name: Format fix pull request
-    # if: ${{ contains(github.event.pull_request.labels.*.names, 'fix') }}
+    if: ${{ contains(github.event.pull_request.title, 'fix') }}
     needs: [assign_labels]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: debug
-      run: |
-        echo "${{ github.event.pull_request.head.ref }}"
-        echo "${{ github.event.pull_request.title }}"
-        echo "${{ github.event.payload.title }}"
-        echo "${{ contains(github.event.pull_request.title, 'fix')  }}"
-        echo "${{ contains(github.payload.pull_request.title, 'fix')  }}"
-    # - name: Read 'fix' body template
-    #   id: pull_request_body
-    #   uses: juliangruber/read-file-action@v1
-    #   with:
-    #     path: ./.github/ISSUE_TEMPLATE/fix_template.md
-    # - name: Update Pull Request
-    #   uses: tzkhan/pr-update-action@v1.1.1
-    #   with:
-    #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
-    #     branch-regex: '[a-z\d-_.\/]+'
-    #     lowercase-branch: true
-    #     title-template: '[%branch%]'
-    #     replace-title: false
-    #     title-prefix-space: true
-    #     uppercase-title: false
-    #     body-template: |
-    #       [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
-    #       ---
-    #       ${{ steps.pull_request_body.outputs.content }}
-    #     replace-body: false
-    #     body-prefix-newline-count: 2
-    #     uppercase-body: true
+    - name: Read 'fix' body template
+      id: pull_request_body
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./.github/ISSUE_TEMPLATE/fix_template.md
+    - name: Update Pull Request
+      uses: tzkhan/pr-update-action@v1.1.1
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        branch-regex: '[a-z\d-_.\/]+'
+        lowercase-branch: true
+        title-template: '[%branch%]'
+        replace-title: false
+        title-prefix-space: true
+        uppercase-title: false
+        body-template: |
+          [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
+          ---
+          ${{ steps.pull_request_body.outputs.content }}
+        replace-body: false
+        body-prefix-newline-count: 2
+        uppercase-body: true
   format_default_pr_information:
     runs-on: ubuntu-latest
     name: Format default pull request
