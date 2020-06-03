@@ -32,10 +32,10 @@
 # Workflow
 - name: unit-tested
   description: Code that has passed unit tests
-  color: 6232FD
+  color: 6323AF
 - name: integration-tested
   description: Code that has passed integration tests
-  color: 4222AA
+  color: 9432FF
 - name: linted
   description: Code that has been linted
   color: 282C34
