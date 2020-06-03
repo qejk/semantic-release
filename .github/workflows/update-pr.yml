@@ -14,9 +14,9 @@ jobs:
           CONFIGURATION_PATH: .github/pr-labeler.yml # optional, .github/pr-labeler.yml is the default value
   format_bug_pr_information:
     runs-on: ubuntu-latest
-    name: Format information
+    name: Format bug pull request
     if: >
-      github.actor != 'github-actions[bot]' && contains(github.event.pull_request.labels.*.name, 'bug')
+      contains(github.event.pull_request.labels.*.name, 'bug')
     needs: [assign_labels]
     steps:
     - name: Checkout
@@ -45,9 +45,9 @@ jobs:
         uppercase-body: true
   format_fix_pr_information:
     runs-on: ubuntu-latest
-    name: Format information
+    name: Format fix pull request
     if: >
-      github.actor != 'github-actions[bot]' && contains(github.event.pull_request.labels.*.name, 'fix')
+      contains(github.event.pull_request.labels.*.name, 'fix')
     needs: [assign_labels]
     steps:
     - name: Checkout
@@ -76,7 +76,7 @@ jobs:
         uppercase-body: true
   format_default_pr_information:
     runs-on: ubuntu-latest
-    name: Format information
+    name: Format default pull request
     if: >
       github.actor != 'github-actions[bot]' && (! contains(github.event.pull_request.labels.*.name, 'bug') && ! contains(github.event.pull_request.labels.*.name, 'fix'))
     needs: [assign_labels]
