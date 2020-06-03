@@ -29,19 +29,35 @@
 - name: wontfix
   description: This will not be worked on
   color: ffffff
-# Custom
-- name: tested:unit
+# Workflow
+- name: unit-tested
   description: Code that has passed unit tests
-  color: 9520bc
-- name: tested:integration
+  color: 6232FD
+- name: integration-tested
   description: Code that has passed integration tests
-  color: fc5aee
+  color: 4222AA
 - name: linted
   description: Code that has been linted
-  color: 5F422D
+  color: 282C34
 - name: formatted
   description: Code that has been formatted
-  color: 76edd1
+  color: 575E6F
 - name: builds
   description: Code that builds
-  color: 39bc44
+  color: A1E202
+# Type
+- name: feature
+  description: Added new feature
+  color: 9332FD
+- name: fix
+  description: Fixed bug
+  color: A1E202
+- name: chore
+  description: Done a chore
+  color: A1E202
+- name: documentation
+  description: Added documentation
+  color: A1E202
+- name: refactor
+  description: Refactored parts of code
+  color: A1E202

@@ -44,14 +44,14 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'tested:unit') }}' == 'true') {
+            if ('${{ contains(github.event.pull_request.labels.*.name, 'unit-tested') }}' == 'true') {
               github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'tested:unit'
+                name: 'unit-tested'
               })
             }
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'tested:integration') }}' == 'true') {
+            if ('${{ contains(github.event.pull_request.labels.*.name, 'integration-tested') }}' == 'true') {
               github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'tested:integration'
+                name: 'integration-tested'
               })
             }
       - uses: actions/github-script@0.6.0
@@ -60,7 +60,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.issues.addLabels({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-              labels: ['tested:unit']
+              labels: ['unit-tested']
             })
   test_integration:
     runs-on: ubuntu-latest
@@ -82,9 +82,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            if ('${{ contains(github.event.pull_request.labels.*.name, 'tested:integration') }}' == 'true') {
+            if ('${{ contains(github.event.pull_request.labels.*.name, 'integration-tested') }}' == 'true') {
               github.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                name: 'tested:integration'
+                name: 'integration-tested'
               })
             }
       - uses: actions/github-script@0.6.0
@@ -93,7 +93,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.issues.addLabels({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-              labels: ['tested:integration']
+              labels: ['integration-tested']
             })
   validate_test_coverage:
     runs-on: ubuntu-latest
