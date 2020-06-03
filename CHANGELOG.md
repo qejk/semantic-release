@@ -82,6 +82,34 @@
 * separate test jobs ([3be51d5](https://github.com/qejk/semantic-release-test/commit/3be51d5df0cd940771da5d337587d4aac4a75baf))
 * separate test types ([274e2c0](https://github.com/qejk/semantic-release-test/commit/274e2c00b9ddd38ca0736aeb47f8edaca59d5bcb))
 
+# [1.10.0](https://github.com/qejk/semantic-release-test/compare/v1.9.3...v1.10.0) (2020-06-03)
+
+
+### Bug Fixes
+
+* add missing property runs-on ([41030e9](https://github.com/qejk/semantic-release-test/commit/41030e919b6f8611c7efa2e0819be8908b5b764a))
+* add missing script ([a65cc2e](https://github.com/qejk/semantic-release-test/commit/a65cc2ee0f29dbec742945c15972c660dc7130c1))
+* add missing scripts ([d40fab8](https://github.com/qejk/semantic-release-test/commit/d40fab8e6097ba40c8aeba674e641c721f2d74c4))
+* double quotes syntax ([9b979b7](https://github.com/qejk/semantic-release-test/commit/9b979b72eb3f870c8dfee250755c8a00babad6db))
+* git commit ([f073b3d](https://github.com/qejk/semantic-release-test/commit/f073b3d81f7482a2330e4fb58ff5537368def5e1))
+* git commit syntax ([6432882](https://github.com/qejk/semantic-release-test/commit/6432882c8d3dc0f9f2e6190d76db13f560ffeb83))
+* github actions bot config ([60b32ad](https://github.com/qejk/semantic-release-test/commit/60b32adbc490aa927b1dfdd10743616cac08f8c7))
+* publish at github package registry ([7e1a0a6](https://github.com/qejk/semantic-release-test/commit/7e1a0a69641a5b4befcdedd3a03b3400be10510e))
+* remove github-bot from authors ([d5ea737](https://github.com/qejk/semantic-release-test/commit/d5ea7377427923781a80427cff1bf0ad842b7d2a))
+* run update only on opened pr ([ab9c107](https://github.com/qejk/semantic-release-test/commit/ab9c1074d7e287424318eaf49a262d236caed4b7))
+
+
+### Features
+
+* [baz-999] add pi ([#32](https://github.com/qejk/semantic-release-test/issues/32)) ([67e9fa6](https://github.com/qejk/semantic-release-test/commit/67e9fa62957d5d9af559dc0fe7a660be1ebebccd))
+* [foo-107] add equal ([#33](https://github.com/qejk/semantic-release-test/issues/33)) ([70da45f](https://github.com/qejk/semantic-release-test/commit/70da45ffc9ba2ea556c4dd3b61e79b5e1c724ee3))
+* [foo-125] add square root ([#39](https://github.com/qejk/semantic-release-test/issues/39)) ([ee07cd6](https://github.com/qejk/semantic-release-test/commit/ee07cd685dc27309837e5929b0e7e0f5f6697bb8))
+* add pr action ([dd6acda](https://github.com/qejk/semantic-release-test/commit/dd6acda25b67df639ad5583925ec30b9b0927935))
+* add script placeholders ([8accdf1](https://github.com/qejk/semantic-release-test/commit/8accdf1890151f5e30caee8323258be3ccd914e5))
+* remove email associated with trilom/file-changes-action author ([86d6deb](https://github.com/qejk/semantic-release-test/commit/86d6deba15f6ce49841e5fa81ca91b7361b95e19))
+* separate test jobs ([3be51d5](https://github.com/qejk/semantic-release-test/commit/3be51d5df0cd940771da5d337587d4aac4a75baf))
+* separate test types ([274e2c0](https://github.com/qejk/semantic-release-test/commit/274e2c00b9ddd38ca0736aeb47f8edaca59d5bcb))
+
 # [1.10.0](https://github.com/qejk/semantic-release-test/compare/v1.9.3...v1.10.0) (2020-06-02)
 
 
