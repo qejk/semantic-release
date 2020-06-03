@@ -13,6 +13,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Read pull_request_template.md
+      id: pull_request_template
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./.github/ISSUE_TEMPLATE/pull_request_template.md
     - name: Update Pull Request
       uses: tzkhan/pr-update-action@v1.1.1
       with:
@@ -25,34 +30,8 @@ jobs:
         uppercase-title: false
         body-template: |
           [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
-
           ---
-          ## Review Checklist:
-          ### Basics
-          - [ ] PR is updated to the most recent version of target branch(no conflicts)
-          - [ ] PR has good description that summarizes all changes
-          - [ ] PR scope(size) is manageable(#1 way to speed up review time)
-          - [ ] PR is peer reviewed
-          - [ ] Commits contain a meaningful commit messages and fallow syntax of [Conventional Commits](http://www.conventionalcommits.org/)
-          - [ ] On dependency change: yarn.lock file is updated and committed
-          - [ ] `CHANGELOG.md` and any other reference to project's version stay unchanged(let [semantic-release](https://github.com/semantic-release/semantic-release) do the magic)
-          ### Code Quality
-          - [ ] Important parts of the code are properly documented and commented
-          - [ ] Code is `formatted`(`yarn run test:format`)
-          - [ ] Code is `linted`(`yarn run test:lint`)
-          - [ ] Code is `tested:unit`(`yarn run test:unit`)
-          - [ ] Code is `tested:integration`(`yarn run test:integration`)
-          - [ ] Code `builds`(`yarn run build`)
-          - [ ] Required code coverage specification is met
-          ### Testing
-          - [ ] New feature/change is covered by unit tests
-          - [ ] New feature/change is covered by integration tests
-          - [ ] All existing tests are still up-to-date
-          ### After Review:
-          - [ ] Merge PR
-          - [ ] Delete source branch
-          ### Optional:
-          - [ ] Move ticket to Done
+          ${{ steps.pull_request_template.outputs.content }}
         replace-body: false
         body-prefix-newline-count: 2
         uppercase-body: true
