@@ -50,6 +50,6 @@ format_pr_information:
           - [ ] Delete source branch
           ### Optional:
           - [ ] Move ticket to Done
-        replace-body: true
+        replace-body: false
         body-prefix-newline-count: 2
         uppercase-body: true
