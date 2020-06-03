@@ -24,64 +24,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           locale: "US"
-  format_pr_information:
-    runs-on: ubuntu-latest
-    name: Format Pull Request information
-    needs: [misspell]
-    if: >-
-      github.actor != 'github-actions[bot]'
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Evaluate changes
-      uses: scottbrenner/generate-changelog-action@master
-      id: changelog
-      env:
-        REPO: ${{ github.repository }}
-    - name: Update Pull Request
-      uses: tzkhan/pr-update-action@v1.1.1
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        branch-regex: '[a-z\d-_.\/]+'
-        lowercase-branch: true
-        title-template: '[%branch%]'
-        replace-title: false
-        title-prefix-space: true
-        uppercase-title: false
-        body-template: |
-          ## Changes:
-          ${{ steps.changelog.outputs.changelog }}
-          ---
-          ## Review Checklist:
-          ### Basics
-          - [ ] PR is updated to the most recent version of target branch(no conflicts)
-          - [ ] PR has good description that summarizes all changes
-          - [ ] PR scope(size) is manageable(#1 way to speed up review time)
-          - [ ] PR is peer reviewed
-          - [ ] Commits contain a meaningful commit messages and fallow syntax of [Conventional Commits](http://www.conventionalcommits.org/)
-          - [ ] On dependency change: yarn.lock file is updated and committed
-          - [ ] `CHANGELOG.md` and any other reference to project's version stay unchanged(let [semantic-release](https://github.com/semantic-release/semantic-release) do the magic)
-          ### Code Quality
-          - [ ] Important parts of the code are properly documented and commented
-          - [ ] Code its properly formatted(`yarn run test:format`)
-          - [ ] No lint errors or warnings(`yarn run test:lint`)
-          - [ ] Unit Tests: All tests are passing(`yarn run test:unit`)
-          - [ ] Integration Tests: All tests are passing(`yarn run test:integration`)
-          - [ ] Required code coverage percentage is met
-          ### Testing
-          - [ ] New feature/change is covered by unit tests
-          - [ ] New feature/change is covered by integration tests
-          - [ ] All existing tests are still up-to-date
-          ### After Review:
-          - [ ] Merge PR
-          - [ ] Delete source branch
-          ### Optional:
-          - [ ] Move ticket to Done
-        replace-body: false
-        body-prefix-newline-count: 2
-        uppercase-body: true
   test_unit:
     runs-on: ubuntu-latest
     strategy:
