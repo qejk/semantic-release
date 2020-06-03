@@ -32,26 +32,25 @@
 # Workflow
 - name: tested:unit
   description: Code that has passed unit tests
-  color: 6323AF
+  color: eeeeee
 - name: tested:integration
   description: Code that has passed integration tests
-  color: 9432FF
+  color: eeeeee
 - name: linted
   description: Code that has been linted
-  color: 282C34
+  color: eeeeee
 - name: formatted
   description: Code that has been formatted
-  color: 575E6F
+  color: eeeeee
 - name: builds
   description: Code that builds
   color: A1E202
-# Type
 - name: feature
   description: Added new feature
   color: 9332FD
 - name: fix
   description: Fixed bug
-  color: A1E202
+  color: 6233FD
 - name: chore
   description: Done a chore
   color: 000000
@@ -60,4 +59,4 @@
   color: FFFFFF
 - name: refactor
   description: Refactored parts of code
-  color: A1E202
+  color: 3265FE
