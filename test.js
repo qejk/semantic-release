@@ -12,6 +12,7 @@ const {
   squareRoot,
   baz,
   quax,
+  bar,
 } = require(".");
 
 describe("tests", () => {
@@ -54,5 +55,8 @@ describe("tests", () => {
   });
   test("quax", () => {
     expect(quax).toEqual("quax");
+  });
+  test("bar", () => {
+    expect(bar).toEqual("bar");
   });
 });
