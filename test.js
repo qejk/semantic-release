@@ -10,6 +10,7 @@ const {
   equal,
   notEqual,
   squareRoot,
+  baz,
 } = require(".");
 
 describe("tests", () => {
@@ -46,5 +47,8 @@ describe("tests", () => {
   });
   test("squareRoot", () => {
     expect(squareRoot(9)).toEqual(81);
+  });
+  test("baz", () => {
+    expect(baz).toEqual("baz");
   });
 });
