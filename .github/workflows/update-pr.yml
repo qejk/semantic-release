@@ -1,7 +1,6 @@
 name: "Update Pull Request"
 
-on:
-  pull_request
+on: [pull_request]
 
 jobs:
 format_pr_information:
