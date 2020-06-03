@@ -1,7 +1,7 @@
 # Default GitHub labels
 - name: bug
   description: Something isn't working
-  color: d73a4a
+  color: D73C52
 - name: documentation
   description: Improvements or additions to documentation
   color: 0075ca
@@ -13,7 +13,7 @@
   color: a2eeef
 - name: good first issue
   description: Good for newcomers
-  color: 7057ff
+  color: FFFFFF
 - name: help wanted
   description: Extra attention is needed
   color: 008672
@@ -54,10 +54,10 @@
   color: A1E202
 - name: chore
   description: Done a chore
-  color: A1E202
+  color: 000000
 - name: documentation
   description: Added documentation
-  color: A1E202
+  color: FFFFFF
 - name: refactor
   description: Refactored parts of code
   color: A1E202
