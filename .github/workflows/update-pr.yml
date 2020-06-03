@@ -15,8 +15,7 @@ jobs:
   format_bug_pr_information:
     runs-on: ubuntu-latest
     name: Format bug pull request
-    if: >
-      contains(github.event.pull_request.labels.*.name, 'bug')
+    if: contains(github.event.pull_request.labels.*.name, 'bug')
     needs: [assign_labels]
     steps:
     - name: Checkout
@@ -46,8 +45,7 @@ jobs:
   format_fix_pr_information:
     runs-on: ubuntu-latest
     name: Format fix pull request
-    if: >
-      contains(github.event.pull_request.labels.*.name, 'fix')
+    if: contains(github.event.pull_request.labels.*.name, 'fix')
     needs: [assign_labels]
     steps:
     - name: Checkout
