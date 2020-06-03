@@ -61,7 +61,7 @@ jobs:
           - [ ] PR scope(size) is manageable(#1 way to speed up review time)
           - [ ] PR is peer reviewed
           - [ ] Commits contain a meaningful commit messages and fallow syntax of [Conventional Commits](http://www.conventionalcommits.org/)
-          - [ ] On dependency change: yarn.lock file is updated and commited
+          - [ ] On dependency change: yarn.lock file is updated and committed
           - [ ] `CHANGELOG.md` and any other reference to project's version stay unchanged(let [semantic-release](https://github.com/semantic-release/semantic-release) do the magic)
           ### Code Quality
           - [ ] Important parts of the code are properly documented and commented
