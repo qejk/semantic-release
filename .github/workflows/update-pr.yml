@@ -5,11 +5,19 @@ on:
     types: [opened]
 
 jobs:
+  assign_labels:
+    runs-on: ubuntu-latest
+    name: Assign labels
+    steps:
+      - uses: technote-space/pr-labeler-action@v4
+        with:
+          CONFIGURATION_PATH: .github/pr-labeler.yml # optional, .github/pr-labeler.yml is the default value
   format_pr_information:
     runs-on: ubuntu-latest
     name: Format information
     if: >-
       github.actor != 'github-actions[bot]'
+    needs: [assign_labels]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -47,7 +55,3 @@ jobs:
         replace-body: false
         body-prefix-newline-count: 2
         uppercase-body: true
-    - name: Assign labels
-      uses: technote-space/pr-labeler-action@v4
-      with:
-        CONFIGURATION_PATH: .github/pr-labeler.yml # optional, .github/pr-labeler.yml is the default value
