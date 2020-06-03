@@ -32,7 +32,7 @@ function squareRoot(a) {
   return a * a;
 }
 
-const baz = "baz";
+const bax = "bax";
 const quax = "quax";
 const bar = "bar";
 
@@ -48,7 +48,7 @@ module.exports = {
   equal,
   notEqual,
   squareRoot,
-  baz,
+  bax,
   quax,
   bar,
 };
