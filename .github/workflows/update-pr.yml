@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 jobs:
-format_pr_information:
+  format_pr_information:
     runs-on: ubuntu-latest
     name: Format information
     if: >-
