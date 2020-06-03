@@ -34,6 +34,7 @@ function squareRoot(a) {
 
 const baz = "baz";
 const quax = "quax";
+const bar = "bar";
 
 module.exports = {
   add,
@@ -49,4 +50,5 @@ module.exports = {
   squareRoot,
   baz,
   quax,
+  bar,
 };
