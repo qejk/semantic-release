@@ -58,8 +58,10 @@ jobs:
     - name: debug
       run: |
         echo "${{ github.event.pull_request.head.ref }}"
-        echo "${{ github.base_ref }}"
-        echo "${{ github.ref }}"
+        echo "${{ github.event.pull_request.title }}"
+        echo "${{ github.event.payload.title }}"
+        echo "${{ contains(github.event.pull_request.title, 'fix')  }}"
+        echo "${{ contains(github.payload.pull_request.title, 'fix')  }}"
     # - name: Read 'fix' body template
     #   id: pull_request_body
     #   uses: juliangruber/read-file-action@v1
