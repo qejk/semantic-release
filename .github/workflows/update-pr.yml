@@ -1,8 +1,7 @@
 name: "Update Pull Request"
 
 on:
-  pull_request:
-    types: [opened]
+  pull_request
 
 jobs:
 format_pr_information:
@@ -24,6 +23,8 @@ format_pr_information:
         title-prefix-space: true
         uppercase-title: false
         body-template: |
+          [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
+
           ---
           ## Review Checklist:
           ### Basics
@@ -50,6 +51,6 @@ format_pr_information:
           - [ ] Delete source branch
           ### Optional:
           - [ ] Move ticket to Done
-        replace-body: false
+        replace-body: true
         body-prefix-newline-count: 2
         uppercase-body: true
