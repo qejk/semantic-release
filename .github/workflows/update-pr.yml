@@ -40,8 +40,8 @@ jobs:
           - [ ] Important parts of the code are properly documented and commented
           - [ ] Code is `formatted`(`yarn run test:format`)
           - [ ] Code is `linted`(`yarn run test:lint`)
-          - [ ] Code is `unit-tested`(`yarn run test:unit`)
-          - [ ] Code is `integration-tested`(`yarn run test:integration`)
+          - [ ] Code is `tested:unit`(`yarn run test:unit`)
+          - [ ] Code is `tested:integration`(`yarn run test:integration`)
           - [ ] Code `builds`(`yarn run build`)
           - [ ] Required code coverage specification is met
           ### Testing

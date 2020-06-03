@@ -30,10 +30,10 @@
   description: This will not be worked on
   color: ffffff
 # Workflow
-- name: unit-tested
+- name: tested:unit
   description: Code that has passed unit tests
   color: 6323AF
-- name: integration-tested
+- name: tested:integration
   description: Code that has passed integration tests
   color: 9432FF
 - name: linted
