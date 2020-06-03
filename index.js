@@ -33,6 +33,7 @@ function squareRoot(a) {
 }
 
 const baz = "baz";
+const quax = "quax";
 
 module.exports = {
   add,
@@ -47,4 +48,5 @@ module.exports = {
   notEqual,
   squareRoot,
   baz,
+  quax,
 };
