@@ -29,12 +29,12 @@ jobs:
       uses: tzkhan/pr-update-action@v1.1.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        branch-regex: 'foo-\d+'
-        lowercase-branch: false
+        branch-regex: ${{ secrets.PROJECT_KEY_PATTERN }}
+        lowercase-branch: true
         title-template: '[%branch%]'
         replace-title: false
         title-prefix-space: true
-        uppercase-title: true
+        uppercase-title: false
         body-template: |
           [Link to %branch%](${{ secrets.TICKET_URL }}%branch%)
           ---
@@ -60,7 +60,7 @@ jobs:
       uses: tzkhan/pr-update-action@v1.1.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        branch-regex: '[a-z\d-_.\/]+'
+        branch-regex: ${{ secrets.PROJECT_KEY_PATTERN }}
         lowercase-branch: true
         title-template: '[%branch%]'
         replace-title: false
