@@ -32,7 +32,7 @@ jobs:
         branch-regex: ${{ secrets.PROJECT_KEY_PATTERN }} # [a-zA-Z0-9_]{3}-[\d]+
         lowercase-branch: true
         title-template: '[%branch%]'
-        replace-title: false
+        replace-title: true
         title-prefix-space: true
         uppercase-title: false
         body-template: |
@@ -63,7 +63,7 @@ jobs:
         branch-regex: ${{ secrets.PROJECT_KEY_PATTERN }} # [a-zA-Z0-9_]{3}-[\d]+
         lowercase-branch: true
         title-template: '[%branch%]'
-        replace-title: false
+        replace-title: true
         title-prefix-space: true
         uppercase-title: false
         body-template: |
