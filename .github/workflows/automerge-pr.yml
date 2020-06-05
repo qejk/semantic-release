@@ -91,6 +91,7 @@ jobs:
               ${{ toJSON(steps.pr_json.outputs.result)}}
             ```
       - name: IF failure, assign failure label
+        uses: actions/github-script@0.6.0
         if: failure()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
