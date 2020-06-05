@@ -42,9 +42,28 @@
 - name: formatted
   description: Code that has been formatted
   color: eeeeee
+- name: conventional
+  description: Commits that passed Conventional Commits linting
+  color: eeeeee
+- name: covered
+  description: Code that has been covered with enough tests
+  color: eeeeee
 - name: builds
   description: Code that builds
   color: A1E202
+- name: "automated merge"
+  description: This was merged automatically
+  color: c2e0c6
+- name: "hold merge"
+  description: This merge will be blocked from automerging until this label is removed
+  color: b60205
+- name: lintdogged
+  description: Code that has been looked at by reviewdog
+  color: 5F422D
+- name: failure
+  description: Something bad happened...
+  color: d93f0b
+# Type
 - name: feature
   description: Added new feature
   color: 9332FD
